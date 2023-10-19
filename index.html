@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <ul class="menu">
+            <li class="active">
+                <a href="javascript:void(0)"  onclick="showPage(this, 'main-content-index')">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" onclick="showPage(this, 'main-content-book')">
+                    <i class="fa-solid fa-book"></i>
+                    <span>Books</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" onclick="showPage(this, 'main-content-customer')">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Customers</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" onclick="showPage(this, 'main-content-order')">
+                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                    <span>Orders</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" onclick="showPage(this, 'main-content-statistical')">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Statistical</span>
+                </a>
+            </li>
+            <li  class="logout">
+                <a href="#">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div id="main-body">
+        <div class="main-content main-content-index page active-page">
+            <div class="header-wrapper">
+                <div class="header-title">
+                    <h2>Dashboard</h2>
+                </div>
+                <div class="user-info">
+                    <img src="./assets/img/avatar.jpg" alt="avatar">
+                </div>
+            </div>
+            <div class="card-container">
+                <h3 class="main-title">
+                    Data
+                </h3>
+                <div class="card-wrapper">
+                    <div class="payment-card light-red">
+                        <div class="card-header">
+                            <div class="amount">
+                                <span class="title">
+                                    Income
+                                </span>
+                                <span class="amount-value">
+                                    10000
+                                </span>
+                            </div>
+                            <i class="fas fa-dollar-sign icon dark-blue"></i>
+                        </div>
+                    </div>
+                    <div class="payment-card light-purple">
+                        <div class="card-header">
+                            <div class="amount">
+                                <span class="title">
+                                    Bill
+                                </span>
+                                <span class="amount-value">
+                                    50
+                                </span>
+                            </div>
+                            <i class="fas fa-list icon dark-purple"></i>
+                        </div>
+                    </div>
+                    <div class="payment-card light-green">
+                        <div class="card-header">
+                            <div class="amount">
+                                <span class="title">
+                                    Customers
+                                </span>
+                                <span class="amount-value">
+                                    100
+                                </span>
+                            </div>
+                            <i class="fas fa-users icon dark-green"></i>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <div class="table-wrapper">
+                <h3 class="main-title">
+                    Orders Status
+                </h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Order date</th>
+                                <th>Customer Name</th>
+                                <th>Address</th>
+                                <th>Phone</th>
+                                <th>Price</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>1/1/2023</td>
+                                <td>Nguyễn Văn A</td>
+                                <td>Xã Hòa An, TP Cao Lãnh, tỉnh Đồng Tháp</td>
+                                <td>0123456789</td>
+                                <td>50$</td>
+                                <td class="pending">Pending</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>1/1/2023</td>
+                                <td>Nguyễn Văn A</td>
+                                <td>Xã Hòa An, TP Cao Lãnh, tỉnh Đồng Tháp</td>
+                                <td>0123456789</td>
+                                <td>50$</td>
+                                <td class="success">Success</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>1/1/2023</td>
+                                <td>Nguyễn Văn A</td>
+                                <td>Xã Hòa An, TP Cao Lãnh, tỉnh Đồng Tháp</td>
+                                <td>0123456789</td>
+                                <td>50$</td>
+                                <td class="cancelled">Cancelled</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>1/1/2023</td>
+                                <td>Nguyễn Văn A</td>
+                                <td>Xã Hòa An, TP Cao Lãnh, tỉnh Đồng Tháp</td>
+                                <td>0123456789</td>
+                                <td>50$</td>
+                                <td class="success">Success</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>1/1/2023</td>
+                                <td>Nguyễn Văn A</td>
+                                <td>Xã Hòa An, TP Cao Lãnh, tỉnh Đồng Tháp</td>
+                                <td>0123456789</td>
+                                <td>50$</td>
+                                <td class="pending">Pending</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="pagination">
+                        <a href="#" class="prev">Prev</a>
+                        <a href="#" class="page-current">1</a>
+                        <a href="#" class="">2</a>
+                        <a href="#" class="">3</a>
+                        <a href="#" class="next">Next</a>
+                    </div>                 
+                </div>
+            </div>
+            <div class="trend-wrapper">
+                <h3 class="main-title">
+                    Trend Books
+                </h3>
+                <div class="card-book">
+                    <div class="book-container light-red">
+                        <img src="./assets/img/theSonsOfTheEmpire.jpg" alt="book">
+                        <div class="book-info">
+                            <p>
+                                Name: <p class="book-name">The Son of the Empire</p>
+                            </p>
+                            <p>
+                                Price: <p class="book-price">50$</p>
+                            </p>
+                            <p>
+                                Quantity sold: <p class="quantity-buy">50</p>
+                            </p>
+                            <p>
+                                Income: <p class="income">2500$</p>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="book-container light-purple">
+                        <img src="./assets/img/theBornOfAplex.jpg" alt="book">
+                        <div class="book-info">
+                            <p>
+                                Name: <p class="book-name">The Born of APLEX</p>
+                            </p>
+                            <p>
+                                Price: <p class="book-price">100$</p>
+                            </p>
+                            <p>
+                                Quantity sold: <p class="quantity-buy">60</p>
+                            </p>
+                            <p>
+                                Income: <p class="income">6000$</p>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="book-container light-green">
+                        <img src="./assets/img/arkForging.jpg" alt="book">
+                        <div class="book-info">
+                            <p>
+                                Name: <p class="book-name">Ark Forging</p>
+                            </p>
+                            <p>
+                                Price: <p class="book-price">40$</p>
+                            </p>
+                            <p>
+                                Quantity sold: <p class="quantity-buy">100</p>
+                            </p>
+                            <p>
+                                Income: <p class="income">4000$</p>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="book-container light-blue">
+                        <img src="./assets/img/thronedMirror.jpg" alt="book">
+                        <div class="book-info">
+                            <p>
+                                Name: <p class="book-name">Throned Mirror</p>
+                            </p>
+                            <p>
+                                Price: <p class="book-price">50$</p>
+                            </p>
+                            <p>
+                                Quantity sold: <p class="quantity-buy">100</p>
+                            </p>
+                            <p>
+                                Income: <p class="income">5000$</p>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-content main-content-book page">
+            <div class="header-wrapper">
+                <div class="header-title">
+                    <h2>Books Managerment</h2>
+                </div>
+                <div class="user-info">
+                    <img src="./assets/img/avatar.jpg" alt="avatar">
+                </div>
+            </div>
+            <div class="table-wrapper">
+                <div class="table-header">
+                    <h3 class="main-title">
+                        Books Information
+                    </h3>
+                    <div class="book-search">
+                        <input type="text" class="book-text-search" placeholder="Search...">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <div class="add-book js-add-book"><i class="fa-solid fa-plus icon-add"></i>Add Book</div>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Author</th>
+                                <th>Category</th>
+                                <th>Tags</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Description</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="book-id">1</td>
+                                <td><img src="./assets/img/2024Sanctuary.jpg" alt="sach" class="book-img"></td>
+                                <td class="book-name">2024: Sanctuary</td>
+                                <td class="book-author">John Roberts</td>
+                                <td class="book-category">Fantasy</td>
+                                <td class="book-tags">Fantasy, Sci-Fi, Horror</td>
+                                <td class="book-quantity">50</td>
+                                <td class="book-price">50$</td>
+                                <td class="book-description">Platea mauris in sit aliquam commodo ipsum, pharetra tempus
+                                    proin diam metus eget quis lobortis commodo scelerisque etiam placerat amet, commodo
+                                    tincidunt pellentesque porttitor elit est cras eu duis bibendum viverra eu est mattis
+                                    vitae viverra vel non egestas commodo faucibus mi ipsum cursus euismod risus morbi ut.
+                                    Amet in pretium libero vitae mattis at bibendum iaculis suspendisse enim interdum vel
+                                    commodo sed est placerat volutpat commodo adipiscing odio egestas euismod egestas lacus
+                                    iaculis aenean porttitor facilisis cras elit felis purus vel mi, elit cursus scelerisque
+                                    lectus morbi elementum vulputate augue non rhoncus morbi nisl, volutpat integer blandit
+                                    nullam pellentesque ornare quam tincidunt pharetra, volutpat purus elementum, enim et
+                                    feugiat quam congue.</td>
+                                <td>
+                                    <i class="fa-solid fa-pen icon-change js-changeBook"></i>
+                                    <i class="fas fa-trash icon-delete js-delete-book"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="book-id">2</td>
+                                <td><img src="./assets/img/algorab.jpg" alt="sach" class="book-img"></td>
+                                <td class="book-name">Mists Algorab</td>
+                                <td class="book-author">John Roberts</td>
+                                <td class="book-category">Fantasy</td>
+                                <td class="book-tags">Fantasy, Sci-Fi, Horror</td>
+                                <td class="book-quantity">50</td>
+                                <td class="book-price">50$</td>
+                                <td class="book-description">Platea mauris in sit aliquam commodo ipsum, pharetra tempus
+                                    proin diam metus eget quis lobortis commodo scelerisque etiam placerat amet, commodo
+                                    tincidunt pellentesque porttitor elit est cras eu duis bibendum viverra eu est mattis
+                                    vitae viverra vel non egestas commodo faucibus mi ipsum cursus euismod risus morbi ut.
+                                    Amet in pretium libero vitae mattis at bibendum iaculis suspendisse enim interdum vel
+                                    commodo sed est placerat volutpat commodo adipiscing odio egestas euismod egestas lacus
+                                    iaculis aenean porttitor facilisis cras elit felis purus vel mi, elit cursus scelerisque
+                                    lectus morbi elementum vulputate augue non rhoncus morbi nisl, volutpat integer blandit
+                                    nullam pellentesque ornare quam tincidunt pharetra, volutpat purus elementum, enim et
+                                    feugiat quam congue.</td>
+                                <td>
+                                    <i class="fa-solid fa-pen icon-change js-changeBook"></i>
+                                    <i class="fas fa-trash icon-delete js-delete-book"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="book-id">3</td>
+                                <td><img src="./assets/img/arkForging.jpg" alt="sach" class="book-img"></td>
+                                <td class="book-name">Ark Forging</td>
+                                <td class="book-author">John Roberts</td>
+                                <td class="book-category">Fantasy</td>
+                                <td class="book-tags">Fantasy, Sci-Fi, Horror</td>
+                                <td class="book-quantity">50</td>
+                                <td class="book-price">50$</td>
+                                <td class="book-description">Platea mauris in sit aliquam commodo ipsum, pharetra tempus
+                                    proin diam metus eget quis lobortis commodo scelerisque etiam placerat amet, commodo
+                                    tincidunt pellentesque porttitor elit est cras eu duis bibendum viverra eu est mattis
+                                    vitae viverra vel non egestas commodo faucibus mi ipsum cursus euismod risus morbi ut.
+                                    Amet in pretium libero vitae mattis at bibendum iaculis suspendisse enim interdum vel
+                                    commodo sed est placerat volutpat commodo adipiscing odio egestas euismod egestas lacus
+                                    iaculis aenean porttitor facilisis cras elit felis purus vel mi, elit cursus scelerisque
+                                    lectus morbi elementum vulputate augue non rhoncus morbi nisl, volutpat integer blandit
+                                    nullam pellentesque ornare quam tincidunt pharetra, volutpat purus elementum, enim et
+                                    feugiat quam congue.
+                                </td>
+                                <td>
+                                    <i class="fa-solid fa-pen icon-change js-changeBook"></i>
+                                    <i class="fas fa-trash icon-delete js-delete-book"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="book-id">4</td>
+                                <td><img src="./assets/img/theBornOfAplex.jpg" alt="sach" class="book-img"></td>
+                                <td class="book-name">The Born of APLEX</td>
+                                <td class="book-author">John Roberts</td>
+                                <td class="book-category">Fantasy</td>
+                                <td class="book-tags">Fantasy, Sci-Fi, Horror</td>
+                                <td class="book-quantity">50</td>
+                                <td class="book-price">50$</td>
+                                <td class="book-description">Platea mauris in sit aliquam commodo ipsum, pharetra tempus
+                                    proin diam metus eget quis lobortis commodo scelerisque etiam placerat amet, commodo
+                                    tincidunt pellentesque porttitor elit est cras eu duis bibendum viverra eu est mattis
+                                    vitae viverra vel non egestas commodo faucibus mi ipsum cursus euismod risus morbi ut.
+                                    Amet in pretium libero vitae mattis at bibendum iaculis suspendisse enim interdum vel
+                                    commodo sed est placerat volutpat commodo adipiscing odio egestas euismod egestas lacus
+                                    iaculis aenean porttitor facilisis cras elit felis purus vel mi, elit cursus scelerisque
+                                    lectus morbi elementum vulputate augue non rhoncus morbi nisl, volutpat integer blandit
+                                    nullam pellentesque ornare quam tincidunt pharetra, volutpat purus elementum, enim et
+                                    feugiat quam congue.
+                                </td>
+                                <td>
+                                    <i class="fa-solid fa-pen icon-change js-changeBook"></i>
+                                    <i class="fas fa-trash icon-delete js-delete-book"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="book-id">5</td>
+                                <td><img src="./assets/img/theReturnOfTheKing.jpg" alt="sach" class="book-img"></td>
+                                <td class="book-name">The Return of The King</td>
+                                <td class="book-author">John Roberts</td>
+                                <td class="book-category">Fantasy</td>
+                                <td class="book-tags">Fantasy, Sci-Fi, Horror</td>
+                                <td class="book-quantity">50</td>
+                                <td class="book-price">50$</td>
+                                <td class="book-description">Platea mauris in sit aliquam commodo ipsum, pharetra tempus
+                                    proin diam metus eget quis lobortis commodo scelerisque etiam placerat amet, commodo
+                                    tincidunt pellentesque porttitor elit est cras eu duis bibendum viverra eu est mattis
+                                    vitae viverra vel non egestas commodo faucibus mi ipsum cursus euismod risus morbi ut.
+                                    Amet in pretium libero vitae mattis at bibendum iaculis suspendisse enim interdum vel
+                                    commodo sed est placerat volutpat commodo adipiscing odio egestas euismod egestas lacus
+                                    iaculis aenean porttitor facilisis cras elit felis purus vel mi, elit cursus scelerisque
+                                    lectus morbi elementum vulputate augue non rhoncus morbi nisl, volutpat integer blandit
+                                    nullam pellentesque ornare quam tincidunt pharetra, volutpat purus elementum, enim et
+                                    feugiat quam congue.
+                                </td>
+                                <td>
+                                    <i class="fa-solid fa-pen icon-change js-changeBook"></i>
+                                    <i class="fas fa-trash icon-delete js-delete-book"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="pagination">
+                        <a href="#" class="prev">Prev</a>
+                        <a href="#" class="page-current">1</a>
+                        <a href="#" class="">2</a>
+                        <a href="#" class="">3</a>
+                        <a href="#" class="next">Next</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-content main-content-customer page">
+            <div class="header-wrapper">
+                <div class="header-title">
+                    <h2>Customers Managerment</h2>
+                </div>
+                <div class="user-info">
+                    <img src="./assets/img/avatar.jpg" alt="avatar">
+                </div>
+            </div>
+            <div class="table-wrapper">
+                <div class="table-header table-header-customer">
+                    <h3 class="main-title">
+                        Customer Infomation
+                    </h3>
+                    <div class="combobox-customer">
+                        <select>
+                            <option value="sort-customer-id">ID</option>
+                            <option value="sort-customer-name">Name</option>
+                        </select>
+                    </div>
+                    <div class="customer-search">
+                        <input type="text" class="customer-text-search" placeholder="Search...">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Address</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="customer-id">1</td>
+                                <td class="customer-name">Trần Đăng Khoa</td>
+                                <td class="customer-address">Xã Hòa An, TP Cao Lãnh, tỉnh Đồng Tháp</td>
+                                <td class="customer-email">trandangkhoantl@gmail.com</td>
+                                <td class="customer-phone">0123456789</td>
+                                <td>
+                                    <i class="fa-solid fa-pen icon-change js-changeCustomer"></i>
+                                    <i class="fas fa-trash icon-delete js-delete-customer"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="customer-id">2</td>
+                                <td class="customer-name">Nguyễn Hữu Vĩnh</td>
+                                <td class="customer-address">Phường 6, TP Cao Lãnh, tỉnh Đồng Tháp</td>
+                                <td class="customer-email">nguyenhuuvinh@gmail.com</td>
+                                <td class="customer-phone">0123456789</td>
+                                <td>
+                                    <i class="fa-solid fa-pen icon-change js-changeCustomer"></i>
+                                    <i class="fas fa-trash icon-delete js-delete-customer"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="customer-id">3</td>
+                                <td class="customer-name">Nguyễn Thanh Danh</td>
+                                <td class="customer-address">Phường 6, TP Cao Lãnh, tỉnh Đồng Tháp</td>
+                                <td class="customer-email">nguyenthanhdanh@gmail.com</td>
+                                <td class="customer-phone">0123456789</td>
+                                <td>
+                                    <i class="fa-solid fa-pen icon-change js-changeCustomer"></i>
+                                    <i class="fas fa-trash icon-delete js-delete-customer"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="customer-id">4</td>
+                                <td class="customer-name">Lê Hoàng Thiện Mỹ</td>
+                                <td class="customer-address">Phường 11, TP Cao Lãnh, tỉnh Đồng Tháp</td>
+                                <td class="customer-email">lehoangthienmy@gmail.com</td>
+                                <td class="customer-phone">0123456789</td>
+                                <td>
+                                    <i class="fa-solid fa-pen icon-change js-changeCustomer"></i>
+                                    <i class="fas fa-trash icon-delete js-delete-customer"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="customer-id">5</td>
+                                <td class="customer-name">Lê Hữu Đúng</td>
+                                <td class="customer-address">Phường 4, TP Cao Lãnh, tỉnh Đồng Tháp</td>
+                                <td class="customer-email">lehuudung@gmail.com</td>
+                                <td class="customer-phone">0123456789</td>
+                                <td>
+                                    <i class="fa-solid fa-pen icon-change js-changeCustomer"></i>
+                                    <i class="fas fa-trash icon-delete js-delete-customer"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="pagination">
+                        <a href="#" class="prev">Prev</a>
+                        <a href="#" class="page-current">1</a>
+                        <a href="#" class="">2</a>
+                        <a href="#" class="">3</a>
+                        <a href="#" class="next">Next</a>
+                    </div>                
+                </div>
+            </div>
+        </div>
+        <div class="main-content main-content-order page">
+            <div class="header-wrapper">
+                <div class="header-title">
+                    <h2>Orders Managerment</h2>
+                </div>
+                <div class="user-info">
+                    <img src="./assets/img/avatar.jpg" alt="avatar">
+                </div>
+            </div>
+            <div class="table-wrapper">
+                <h3 class="main-title">
+                    Orders awaiting
+                </h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Order date</th>
+                                <th>Customer Name</th>
+                                <th>Address</th>
+                                <th>Phone</th>
+                                <th>Price</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>1/1/2023</td>
+                                <td>Nguyễn Văn A</td>
+                                <td>Xã Hòa An, TP Cao Lãnh, tỉnh Đồng Tháp</td>
+                                <td>0123456789</td>
+                                <td>50$</td>
+                                <td class="pending">Pending</td>
+                                <td>
+                                    <i onclick="showSuccessToast('Success', 'Order approval successful', 'success')" class="fa-solid fa-check icon-done"></i>
+                                    <i class="fas fa-trash icon-delete js-delete-order"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>1/1/2023</td>
+                                <td>Nguyễn Văn A</td>
+                                <td>Xã Hòa An, TP Cao Lãnh, tỉnh Đồng Tháp</td>
+                                <td>0123456789</td>
+                                <td>50$</td>
+                                <td class="pending">Pending</td>
+                                <td>
+                                    <i onclick="showSuccessToast('Success', 'Order approval successful', 'success')" class="fa-solid fa-check icon-done"></i>
+                                    <i class="fas fa-trash icon-delete js-delete-order"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>1/1/2023</td>
+                                <td>Nguyễn Văn A</td>
+                                <td>Xã Hòa An, TP Cao Lãnh, tỉnh Đồng Tháp</td>
+                                <td>0123456789</td>
+                                <td>50$</td>
+                                <td class="pending">Pending</td>
+                                <td>
+                                    <i onclick="showSuccessToast('Success', 'Order approval successful', 'success')" class="fa-solid fa-check icon-done"></i>
+                                    <i class="fas fa-trash icon-delete js-delete-order"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>1/1/2023</td>
+                                <td>Nguyễn Văn A</td>
+                                <td>Xã Hòa An, TP Cao Lãnh, tỉnh Đồng Tháp</td>
+                                <td>0123456789</td>
+                                <td>50$</td>
+                                <td class="pending">Pending</td>
+                                <td>
+                                    <i onclick="showSuccessToast('Success', 'Order approval successful', 'success')" class="fa-solid fa-check icon-done"></i>
+                                    <i class="fas fa-trash icon-delete js-delete-order"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>1/1/2023</td>
+                                <td>Nguyễn Văn A</td>
+                                <td>Xã Hòa An, TP Cao Lãnh, tỉnh Đồng Tháp</td>
+                                <td>0123456789</td>
+                                <td>50$</td>
+                                <td class="pending">Pending</td>
+                                <td>
+                                    <i onclick="showSuccessToast('Success', 'Order approval successful', 'success')" class="fa-solid fa-check icon-done"></i>
+                                    <i class="fas fa-trash icon-delete js-delete-order"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="pagination">
+                        <a href="#" class="prev">Prev</a>
+                        <a href="#" class="page-current">1</a>
+                        <a href="#" class="">2</a>
+                        <a href="#" class="">3</a>
+                        <a href="#" class="next">Next</a>
+                    </div>               
+                </div>
+            </div>
+        </div>
+        <div class="main-content main-content-statistical page">
+            <div class="header-wrapper">
+                <div class="header-title">
+                    <h2>Statistical</h2>
+                </div>
+                <div class="user-info">
+                    <img src="./assets/img/avatar.jpg" alt="avatar">
+                </div>
+            </div>
+            <div class="table-wrapper income-statistical">
+                <h3 class="main-title">
+                    Income
+                </h3>
+                <div class="combobox-select-year">
+                    <label for="selected-year">Year</label>
+                    <select id="selected-year">
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                    </select>
+                </div>
+                <div class="chart-container">
+                    <canvas id="lineChart-income-month"></canvas>
+                    <canvas id="lineChart-income-year"></canvas>
+                </div>
+            </div>
+            <div class="table-wrapper books-statistical">
+                <h3 class="main-title">
+                    Number of books sold
+                </h3>
+                <div class="combobox-select-year">
+                    <label for="selected-year">Year</label>
+                    <select id="selected-year">
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                    </select>
+                </div>
+                <div class="chart-container">
+                    <canvas id="lineChart-bookSold-month"></canvas>
+                    <canvas id="barChart-bookSold-month"></canvas>
+                </div>
+            </div>
+            <div class="table-wrapper books-statistical">
+                <h3 class="main-title">
+                    Number of category books sold
+                </h3>
+                <div class="combobox-select-year">
+                    <label for="selected-year">Year</label>
+                    <select id="selected-year">
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                    </select>
+                </div>
+                <div class="chart-container chart-container-pie">
+                    <canvas id="pieChart-categoryBookSold-month"></canvas>
+                    <canvas id="barChart-categoryBookSold-month"></canvas>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal js-modal-changeBook">
+        <div class="modal-container js-modal-changeBook-container">
+            <div class="modal-close js-modal-changeBook-close">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+
+            <header class="modal-header modal-header-books">
+                <i class="modal-heading-icon fa-solid fa-book"></i>
+                Change Book Information
+            </header>
+
+            <div class="modal-body">
+                <label for="book-name" class="modal-label">
+                    Name
+                    <input id="book-name" type="text" class="js-book-name modal-input" placeholder="Name...">
+                </label>
+                
+
+                <label for="book-author" class="modal-label">
+                    Author
+                    <input id="book-author" type="text" class="js-book-author modal-input" placeholder="Author...">
+                </label>
+                
+
+                <label for="book-category" class="modal-label">
+                    Category
+                    <input id="book-category" type="text" class="js-book-category modal-input" placeholder="Category...">
+                </label>
+                
+
+                <label for="book-tags" class="modal-label">
+                    Tags
+                    <input id="book-tags" type="text" class="js-book-tags modal-input" placeholder="Tags...">
+                </label>
+                
+
+                <label for="book-quantity" class="modal-label">
+                    Quantity
+                    <input id="book-quantity" type="number" class="js-book-quantity modal-input" placeholder="Quantity..."
+                    min="1">
+                </label>
+               
+
+                <label for="book-price" class="modal-label">
+                    Price
+                    <input id="book-price" type="number" class="js-book-price modal-input" placeholder="Price..." min="1">
+
+                </label>
+               
+                <label for="book-description" class="modal-label">
+                    Description
+                    <textarea id="book-description" rows="2" type="textarea" class="js-book-description modal-input" placeholder="Description..."></textarea>
+                </label>
+                
+                <label for="book-img" class="modal-label">
+                    Image
+                    <input id="book-img" type="file" class="js-book-img modal-input" placeholder="Image">
+                </label>
+                
+                <div class="action-form">
+                    <div class="cancel-book js-cancel-book">
+                        Cancel
+                    </div>
+                    <div onclick="showSuccessToast('Success', 'Change book information successful', 'success')"
+                        class="submit-book js-save-changedBook">
+                        Save
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal js-modal-addBook">
+        <div class="modal-container js-modal-addBook-container">
+            <div class="modal-close js-modal-addBook-close">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+
+            <header class="modal-header modal-header-books">
+                <i class="modal-heading-icon fa-solid fa-book"></i>
+                Add Book
+            </header>
+
+            <div class="modal-body">
+                <label for="book-name" class="modal-label">
+                    Name
+                    <input id="book-name" type="text" class="js-book-name modal-input" placeholder="Name...">
+                </label>
+                
+
+                <label for="book-author" class="modal-label">
+                    Author
+                    <input id="book-author" type="text" class="js-book-author modal-input" placeholder="Author...">
+                </label>
+                
+
+                <label for="book-category" class="modal-label">
+                    Category
+                    <input id="book-category" type="text" class="js-book-category modal-input" placeholder="Category...">
+                </label>
+                
+
+                <label for="book-tags" class="modal-label">
+                    Tags
+                    <input id="book-tags" type="text" class="js-book-tags modal-input" placeholder="Tags...">
+                </label>
+                
+
+                <label for="book-quantity" class="modal-label">
+                    Quantity
+                    <input id="book-quantity" type="number" class="js-book-quantity modal-input" placeholder="Quantity..."
+                    min="1">
+                </label>
+                
+
+                <label for="book-price" class="modal-label">
+                    Price
+                    <input id="book-price" type="number" class="js-book-price modal-input" placeholder="Price..." min="1">
+                </label>
+                
+                <label for="book-description" class="modal-label">
+                    Description
+                    <textarea id="book-description" rows="2" type="textarea" class="js-book-description modal-input" placeholder="Description..."></textarea>
+                </label>
+
+                <label for="book-img" class="modal-label">
+                    Image
+                    <input id="book-img" type="file" class="js-book-img modal-input" placeholder="Image">
+                </label>
+                
+                <div class="action-form">
+                    <div class="cancel-book js-cancel-book">
+                        Cancel
+                    </div>
+                    <div onclick="showSuccessToast('Success', 'Add books successful', 'success')"
+                        class="submit-book js-addBook">
+                        Add
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-delete js-modal-deleteBook">
+        <div class="modal-delete-container js-modal-deleteBook-container">
+            <div class="modal-delete-close js-modal-deleteBook-close">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            <div class="modal-delete-body">
+                <p>Do you want to delete book?</p>
+                <div class="btn-delete-choose">
+                    <div onclick="showSuccessToast('Success', 'Delete books successful', 'success')"
+                        class="btn-yes js-book-btn-yes">
+                        <a href="#">Yes</a>
+                    </div>
+                    <div class="btn-no js-book-btn-no">
+                        <a href="#">No</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal js-modal-customer">
+        <div class="modal-container js-modalCustomer-container modal-container-customer">
+            <div class="modal-close js-modalCustomer-close">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+
+            <header class="modal-header">
+                <i class="modal-heading-icon fa-solid fa-user"></i>
+                Change Customer Information
+            </header>
+
+            <div class="modal-body">
+                <label for="customer-name" class="modal-label">
+                    Name
+                    <input id="customer-name" type="text" class="js-customer-name modal-input modal-input-customer" placeholder="Name...">
+                </label>
+
+                <label for="customer-adress" class="modal-label">
+                    Address
+                    <input id="customer-adress" type="text" class="js-customer-address modal-input modal-input-customer" placeholder="Address...">
+                </label>
+                
+
+                <label for="customer-email" class="modal-label">
+                    Email
+                    <input id="customer-email" type="email" class="js-customer-email modal-input modal-input-customer" placeholder="Email...">
+                </label>
+                
+
+                <label for="customer-phone" class="modal-label">
+                    Phone
+                    <input id="customer-phone" type="number" class="js-customer-phone modal-input modal-input-customer" placeholder="Phone...">
+                </label>
+                
+
+                <div class="action-form">
+                    <div class="cancel-book js-cancel-customer">
+                        Cancel
+                    </div>
+                    <div onclick="showSuccessToast('Success', 'Change customer information successful', 'success')" class="submit-book js-change-customer">
+                        Save
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-delete js-modal-deleteCustomer">
+        <div class="modal-delete-container js-modal-deleteCustomer-container">
+            <div class="modal-delete-close js-modal-deleteCustomer-close">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            <div class="modal-delete-body">
+                <p>Do you want to delete customer?</p>
+                <div class="btn-delete-choose">
+                    <div onclick="showSuccessToast('Success', 'Delete customer successful', 'success')" class="btn-yes js-customer-btn-yes">
+                        <a href="#">Yes</a>
+                    </div>
+                    <div class="btn-no js-customer-btn-no">
+                        <a href="#">No</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-delete js-modal-deleteOrder">
+        <div class="modal-delete-container js-modal-deleteOrder-container">
+            <div class="modal-delete-close js-modal-deleteOrder-close">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            <div class="modal-delete-body">
+                <p>Do you want to delete order?</p>
+                <div class="btn-delete-choose">
+                    <div onclick="showSuccessToast('Success', 'Cancel order successful', 'success')" class="btn-yes js-order-btn-yes">
+                        <a href="#">Yes</a>
+                    </div>
+                    <div class="btn-no js-order-btn-no">
+                        <a href="#">No</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast"></div>
+    <script>
+        function showSuccessToast(title, message, type) {
+            toast({
+                title: title,
+                message: message,
+                type: type,
+                duration: 5000
+            });
+        }
+    </script>
+    <script src="./chuyentrang.js"></script>
+    <script src="./script-form-book.js"></script>
+    <script src="./script-form-qlkh.js"></script>
+    <script src="./script-form-hoadon.js"></script>
+    <script src="./script-chart.js"></script>
+</body>
+</html>
